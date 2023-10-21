@@ -16,14 +16,14 @@ let moveRight = false;
 const bulletWidth = 5;
 const bulletHeight = 8;
 const bullets = [];
-const bulletSpeed = 5;
+const bulletSpeed = 7;
 const bulletFireRate = 75; // Frames between automatic bullet firing
 let bulletMultiplier = 1;
 
 
 // Invader settings
 const invaders = [];
-const invaderSpeed = .5;
+const invaderSpeed = 1;
 const maxInvaderWidth = 60;
 const minInvaderWidth = 20;
 
@@ -122,6 +122,8 @@ function handleTouchStart(evt) {
 }
 
 function handleTouchMove(evt) {
+    evt.preventDefault();  // Prevent the default scroll behavior
+
     let newTouchX = evt.touches[0].clientX;
     if (newTouchX < touchX && playerX > 0) {
         movePlayer(-1);
